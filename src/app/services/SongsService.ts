@@ -6,7 +6,7 @@ class SongsService {
 
     static async getSongs(searchTerm: any) {
         try {
-            const response = await fetch(`http://localhost:3000/api/songs/search?searchTerm=${encodeURIComponent(searchTerm)}`);
+            const response = await fetch(`${process.env.BASE_URL}/api/songs/search?searchTerm=${encodeURIComponent(searchTerm)}`);
             if (!response.ok) {
                 throw new Error('Error in response API');
             };
@@ -30,12 +30,12 @@ class SongsService {
 
     static async getTack(trackId: string) {
         try {
-            const response = await fetch(`/api/songs/${encodeURIComponent(trackId)}`);
-            if (!response) {
+            const response = await fetch(`${process.env.BASE_URL}/api/songs/${encodeURIComponent(trackId)}`);
+            if (!response.ok) {
                 throw new Error(HTTP_ERROR);
             };
             const data = await response.json();
-            const track = data.data?.album;
+            const track = data.album;
             if (track) {
                 return {
                     name: track.name,

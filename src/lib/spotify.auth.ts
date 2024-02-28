@@ -30,7 +30,6 @@ export default async function getSpotifyAccessToken() {
     if (!data.access_token) {
       throw new Error(NO_ACCESS_DATA);
     }
-
     return data.access_token;
   } catch (error: any) {
     NextResponse.json({ error: error.message || UNEXPECTED_ERROR });

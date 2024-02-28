@@ -10,8 +10,11 @@ interface ITable {
 const Table: FC<ITable> = async ({ query }) => {
   const SHOW_DETAILS: string = `Show details`;
 
-  const songs = await SongsService.getSongs(query);
-
+  let songs = [];
+  if (query) {
+    songs = await SongsService.getSongs(query);
+  };
+  
   if (!songs.length) return <></>;
 
   return (
