@@ -2,6 +2,7 @@ import { FC } from "react";
 import { SongsService } from "../../services";
 import { ISong } from "@/types/song.type";
 import Link from "next/link";
+import Image from "next/image";
 
 interface ITable {
   query: string;
@@ -28,10 +29,12 @@ const Table: FC<ITable> = async ({ query }) => {
           className="flex justify-between gap-x-6 py-5"
         >
           <div className="flex min-w-0 gap-x-4">
-            <img
-              className="h-12 w-12 flex-none rounded-md bg-gray-50"
+            <Image
               src={song.img}
-              alt=""
+              className="h-12 w-12 flex-none rounded-md bg-gray-50"
+              alt="Picture of Album Song"
+              width={48}
+              height={48}
             />
             <div className="min-w-0 flex-auto">
               <p className="text-sm font-semibold leading-6 text-gray-900">

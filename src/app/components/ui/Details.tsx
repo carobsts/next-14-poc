@@ -5,6 +5,7 @@ import { FC } from "react";
 import { IField } from "@/types/field.type";
 import { LABEL_DO_YOU_KNOW, LABEL_GO_BACK, LABEL_READ_ABOUT_SONG, LABEL_SONG_DETAILS } from "@/lib/contansts";
 import { paths } from "@/lib/paths";
+import Image from "next/image";
 
 interface IDetails {
   id: string;
@@ -66,10 +67,9 @@ const Details: FC<IDetails> = async ({ id }) => {
           </Link>
         </div>
       </div>
-      <img
+      <Image
         src={track.img}
-        alt="Product screenshot"
-        className="w-[18.75rem] h-[18.75rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10"
+        alt="Picture of Album Song"
         width={300}
         height={300}
       />
